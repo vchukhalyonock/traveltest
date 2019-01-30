@@ -10,15 +10,15 @@ namespace App\Interfaces;
 interface ILinkStorage {
 
     /**
-     * @param ILink $link
+     * @param string $link
      */
-    static public function addLink(ILink $link): void;
+    static public function addLink(string $link): void;
 
     /**
      * @param int $index
-     * @return ILink
+     * @return string
      */
-    static public function getLink(integer $index): ILink;
+    static public function getLink(integer $index): string;
 
 
     /**
