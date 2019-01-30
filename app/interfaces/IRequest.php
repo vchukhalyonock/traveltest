@@ -6,4 +6,5 @@ interface IRequest {
     public function __construct(mixed $curlResult);
     public function getCode(): int;
     public function getBody(): string;
+    public function getLoadTime(): int;
 }

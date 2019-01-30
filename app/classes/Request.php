@@ -13,6 +13,7 @@ class Request implements IRequest {
     private $_curlResult;
     private $_body;
     private $_code;
+    private $_totalTime;
 
     /**
      * Request constructor.
@@ -39,6 +40,13 @@ class Request implements IRequest {
         return $this->_code;
     }
 
+    /**
+     * @return int
+     */
+    public function getLoadTime(): int {
+        return $this->_totalTime;
+    }
+
 
     /**
      *
@@ -52,5 +60,10 @@ class Request implements IRequest {
      */
     private function _extractCode() {
         $this->_code = $this->_curlResult[0]['http_code'];
+    }
+
+
+    private function _extractTotalTime() {
+        $this->_code = $this->_curlResult[0]['total_time'];
     }
 }
