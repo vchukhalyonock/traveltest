@@ -23,11 +23,6 @@ class LinkValidator implements ILinkValidator {
     }
 
 
-    public function isRelative(string $link): bool {
-
-    }
-
-
     /**
      * @param string $link
      * @return bool

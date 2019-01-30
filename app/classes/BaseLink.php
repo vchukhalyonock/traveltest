@@ -40,6 +40,9 @@ class BaseLink implements IBaseLink {
     }
 
 
+    /**
+     * @throws \Exception
+     */
     private function _parseBaseUrl() {
         $result = [];
         if(preg_match("^([a-zA-Z]+)(:\/\/)([a-zA-Z._+0-9-]+)(.*)$", $this->_baseUrl, $result)) {
@@ -53,20 +56,6 @@ class BaseLink implements IBaseLink {
         }
 
         throw new \Exception("BaseLink::_parseBaseUrl bad regular expression or base url");
-    }
-
-
-    /**
-     * @param string $link
-     * @return string
-     * @throws \Exception
-     */
-    private function _removeAnchors(string $link): string {
-        $result = [];
-        if(preg_match("/(.*)(#+)(.*)$/", $link, $result))
-            return $result[1];
-
-        throw new \Exception("BaseLink::_removeAnchors bad regular expression or base url");
     }
 
 

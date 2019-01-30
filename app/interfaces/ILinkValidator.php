@@ -20,10 +20,4 @@ interface ILinkValidator {
      */
     public function check(string $link): bool;
 
-
-    /**
-     * @param string $link
-     * @return bool
-     */
-    public function isRelative(string $link): bool;
 }
