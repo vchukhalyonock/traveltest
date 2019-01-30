@@ -22,8 +22,8 @@ class LinkValidator implements ILinkValidator {
     }
 
 
-    private function _hasRedirect(string $link): bool {
-
+    private function _isJSLink(string $link): bool {
+        return stristr("javascript:void(0)", $link) !== false;
     }
 
 
@@ -32,6 +32,6 @@ class LinkValidator implements ILinkValidator {
      * @return bool
      */
     public function check(string $link): bool {
-        return !$this->_isRemoteUrl($link) && !$this->_hasRedirect($link);
+        return !$this->_isRemoteUrl($link) && !$this->_isJSLink($link);
     }
 }
