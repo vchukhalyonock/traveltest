@@ -13,8 +13,12 @@ class LinkValidator implements ILinkValidator {
         $this->_baseLink = $baseLink;
     }
 
+    /**
+     * @param string $link
+     * @return bool
+     */
     private function _isRemoteUrl(string $link): bool {
-
+        return stripos($this->_baseLink->getProto() . '://' . $this->_baseLink->getHost(), $link) !== 0;
     }
 
 
