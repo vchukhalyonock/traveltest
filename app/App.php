@@ -30,6 +30,7 @@ class App {
     private function _init() {
         $curl = new Curl();
         foreach ($this->_linkStorage as $link) {
+            echo "Processing link $link\n";
             $request = $curl->request($link);
             $bodyParser = new BodyParser($request->getBody());
             $foundLinks = $bodyParser->getLinks();
@@ -44,8 +45,9 @@ class App {
             foreach ($foundLinks as $foundLink) {
                 $linkObject = new Link($this->_baseLink);
                 $fullLink = $linkObject->makeFullLink($foundLink);
-                if($this->_linkValidator->check($fullLink))
+                if($this->_linkValidator->check($fullLink)) {
                     $this->_linkStorage->addLink($fullLink);
+                }
             }
             unset($bodyParser);
         }

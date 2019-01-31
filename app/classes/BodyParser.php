@@ -20,7 +20,7 @@ class BodyParser implements IBodyParser {
      * @return array
      */
     public function getImages(): array {
-        return $this->_findByRegExp('/<img\s.*?src="(.+?)".*?>/');
+        return $this->_findByRegExp('/<img/')[0];
     }
 
 
@@ -28,7 +28,13 @@ class BodyParser implements IBodyParser {
      * @return array
      */
     public function getLinks(): array {
-        return $this->_findByRegExp('/<a\s.*?href="(.+?)".*?>(.+?)<\/a>/');
+        $result = [];
+        $matches = $this->_findByRegExp('/(<a[^>]*)href=(\"?)([^\s\">]+?)(\"?)([^>]*>)/ismU');
+
+        foreach ($matches[3] as $match)
+            $result[] = $match;
+
+        return $result;
     }
 
 
@@ -37,13 +43,8 @@ class BodyParser implements IBodyParser {
      * @return array
      */
     private function _findByRegExp(string $regExp): array {
-        $result = [];
         $matches = [];
         preg_match_all($regExp, $this->_body, $matches);
-
-        foreach ($matches[1] as $match)
-            $result[] = $match[1];
-
-        return $result;
+        return $matches;
     }
 }

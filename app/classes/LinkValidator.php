@@ -18,12 +18,17 @@ class LinkValidator implements ILinkValidator {
      * @return bool
      */
     private function _isRemoteUrl(string $link): bool {
-        return stripos($this->_baseLink->getProto() . '://' . $this->_baseLink->getHost(), $link) !== 0;
+        return stripos($link, $this->_baseLink->getProto() . '://' . $this->_baseLink->getHost()) !== 0;
     }
 
 
     private function _isJSLink(string $link): bool {
-        return stristr("javascript:void(0)", $link) !== false;
+        return stristr($link, "javascript:void(0)") !== false;
+    }
+
+
+    private function _isMailTo(string  $link): bool {
+        return stristr($link, "mailto:") !== false;
     }
 
 
@@ -32,6 +37,6 @@ class LinkValidator implements ILinkValidator {
      * @return bool
      */
     public function check(string $link): bool {
-        return !$this->_isRemoteUrl($link) && !$this->_isJSLink($link);
+        return !$this->_isRemoteUrl($link) && !$this->_isJSLink($link) && !$this->_isMailTo($link);
     }
 }

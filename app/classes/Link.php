@@ -24,7 +24,7 @@ class Link implements ILink {
      */
     public function isRelative(string $link): bool {
         $proto = $this->_baseLink->getProto();
-        return stripos("{$proto}://", $link) !== 0;
+        return stripos($link, "{$proto}://") !== 0;
     }
 
 
@@ -34,7 +34,7 @@ class Link implements ILink {
      */
     public function makeFullLink(string $link): string {
         if($this->isRelative($link)) {
-            $leadSlash = strpos("/", $link) == 0 ? '' : '/';
+            $leadSlash = strpos( $link, "/") === 0 ? '' : '/';
             return $this->_baseLink->getProto() . '://' . $this->_baseLink->getHost()
                 . $leadSlash . $this->removeAnchor($link);
         }
@@ -50,7 +50,7 @@ class Link implements ILink {
      */
     public function removeAnchor(string $link): string {
         $result = [];
-        if(preg_match("/(.*)(#+)(.*)$/", $link, $result))
+        if(preg_match("/(.*)(#?)(.*)$/", $link, $result) !== false)
             return $result[1];
 
         throw new \Exception("Link::removeAnchor bad regular expression or base url");
