@@ -17,7 +17,7 @@ class LinkStorage implements ILinkStorage, \Iterator {
 
     private function _exists(string $link): bool {
         foreach ($this->_links as $linkObject) {
-            if($linkObject->getLink() == $link) {
+            if($linkObject->getLink() == $link || $linkObject->getLink() == "$link/") {
                 return true;
             }
         }
