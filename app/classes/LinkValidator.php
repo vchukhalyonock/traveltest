@@ -5,17 +5,36 @@ namespace App\Classes;
 use App\Interfaces\IBaseLink;
 use App\Interfaces\ILinkValidator;
 
+/**
+ * Class LinkValidator
+ * @package App\Classes
+ */
 class LinkValidator implements ILinkValidator {
 
+    /**
+     * @var IBaseLink
+     */
     private $_baseLink;
+
+    /**
+     * @var array
+     */
     private $_validators = [
       'JSLink',
       'MailTo',
       'RemoteUrl',
         'ImageFile'
     ];
+
+    /**
+     * @var string
+     */
     private $_validatorsNamespase = "App\\Classes\\Validators\\";
 
+    /**
+     * LinkValidator constructor.
+     * @param IBaseLink $baseLink
+     */
     public function __construct(IBaseLink $baseLink) {
         $this->_baseLink = $baseLink;
     }

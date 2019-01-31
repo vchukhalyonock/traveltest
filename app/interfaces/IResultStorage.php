@@ -2,6 +2,10 @@
 
 namespace App\Interfaces;
 
+/**
+ * Interface IResultStorage
+ * @package App\Interfaces
+ */
 interface IResultStorage {
 
     /**

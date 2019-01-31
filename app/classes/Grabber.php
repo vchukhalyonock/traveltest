@@ -6,8 +6,16 @@ use App\Interfaces\IGrabber;
 use App\Interfaces\IResultStorage;
 use App\Interfaces\ResultStorage;
 
+/**
+ * Class Grabber
+ * @package App\Classes
+ */
 class Grabber implements IGrabber {
 
+    /**
+     * @param string $baseUrl
+     * @return IResultStorage
+     */
     static public function run(string $baseUrl): IResultStorage {
         $linkStorage = new LinkStorage();
         $linkStorage->addLink($baseUrl);

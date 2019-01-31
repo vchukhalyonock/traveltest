@@ -2,6 +2,10 @@
 
 namespace App\Interfaces;
 
+/**
+ * Interface IValidator
+ * @package App\Interfaces
+ */
 interface IValidator {
 
     /**

@@ -10,9 +10,24 @@ use App\Interfaces\IRequest;
  */
 class Request implements IRequest {
 
+    /**
+     * @var mixed
+     */
     private $_curlResult;
+
+    /**
+     * @var
+     */
     private $_body;
+
+    /**
+     * @var
+     */
     private $_code;
+
+    /**
+     * @var
+     */
     private $_totalTime;
 
     /**
@@ -64,6 +79,9 @@ class Request implements IRequest {
     }
 
 
+    /**
+     *
+     */
     private function _extractTotalTime() {
         $this->_totalTime = $this->_curlResult[1]['total_time'];
     }

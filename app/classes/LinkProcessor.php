@@ -5,6 +5,10 @@ namespace App\Classes;
 use App\Interfaces\IBaseLink;
 use App\Interfaces\ILinkProcessor;
 
+/**
+ * Class LinkProcessor
+ * @package App\Classes
+ */
 class LinkProcessor implements ILinkProcessor {
 
     private $_baseLink;

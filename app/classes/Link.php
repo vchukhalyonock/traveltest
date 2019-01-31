@@ -10,7 +10,14 @@ use App\Interfaces\ILink;
  */
 class Link implements ILink {
 
+    /**
+     * @var string
+     */
     protected $_link;
+
+    /**
+     * @var int
+     */
     protected $_depth;
 
     /**

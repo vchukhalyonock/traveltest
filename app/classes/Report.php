@@ -6,6 +6,10 @@ use App\Interfaces\IBaseLink;
 use App\Interfaces\IReport;
 use App\Interfaces\IResultStorage;
 
+/**
+ * Class Report
+ * @package App\Classes
+ */
 class Report implements IReport {
 
     /**

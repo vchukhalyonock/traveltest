@@ -17,21 +17,6 @@ class BaseLink implements IBaseLink {
     protected $_parsedUrl;
 
     /**
-     * @var string
-     */
-    private $_host;
-
-    /**
-     * @var string
-     */
-    private $_proto;
-
-    /**
-     * @var string
-     */
-    private $_link;
-
-    /**
      * BaseLink constructor.
      * @param string $baseUrl
      */

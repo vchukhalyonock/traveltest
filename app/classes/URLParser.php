@@ -5,6 +5,10 @@ namespace App\Classes;
 use App\Interfaces\IParsedUrl;
 use App\Interfaces\IURLParser;
 
+/**
+ * Class URLParser
+ * @package App\Classes
+ */
 class URLParser implements IURLParser {
 
     /**

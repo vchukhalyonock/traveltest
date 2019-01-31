@@ -4,6 +4,10 @@ namespace App\Classes;
 
 use App\Interfaces\IBodyParser;
 
+/**
+ * Class BodyParser
+ * @package App\Classes
+ */
 class BodyParser implements IBodyParser {
 
     private $_body;

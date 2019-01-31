@@ -5,6 +5,10 @@ namespace App\Classes;
 use App\Interfaces\ICurl;
 use App\Interfaces\IRequest;
 
+/**
+ * Class Curl
+ * @package App\Classes
+ */
 class Curl implements ICurl {
 
     /**
