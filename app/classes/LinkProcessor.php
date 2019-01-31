@@ -50,7 +50,11 @@ class LinkProcessor implements ILinkProcessor {
      */
     public function removeAnchor(string $link): string {
         $result = [];
-        if(preg_match("/(.*)(#?)(.*)$/", $link, $result) !== false)
+        if(strpos($link, '#') === false)
+            return $link;
+        if(strpos($link, '#') === 0)
+            return '';
+        if(preg_match("/(.*)(#+?)(.*)$/", $link, $result) !== false)
             return $result[1];
 
         throw new \Exception("LinkProcessor::removeAnchor bad regular expression or base url");
