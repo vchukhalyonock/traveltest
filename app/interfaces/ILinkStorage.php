@@ -7,7 +7,7 @@ namespace App\Interfaces;
  * Interface ILinkStorage
  * @package App\Interfaces
  */
-interface ILinkStorage extends \Iterator {
+interface ILinkStorage {
 
     /**
      * @param string $link

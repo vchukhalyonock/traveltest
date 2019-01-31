@@ -4,7 +4,7 @@ namespace App\Classes;
 
 use App\Interfaces\ILinkStorage;
 
-class LinkStorage implements ILinkStorage {
+class LinkStorage implements ILinkStorage, \Iterator {
 
     private $_links = [];
     private $_currentIndex = 0;
