@@ -45,7 +45,7 @@ class BaseLink implements IBaseLink {
      */
     private function _parseBaseUrl() {
         $result = [];
-        if(preg_match("^([a-zA-Z]+)(:\/\/)([a-zA-Z._+0-9-]+)(.*)$", $this->_baseUrl, $result)) {
+        if(preg_match("/^([a-zA-Z]+)(:\/\/)([a-zA-Z._+0-9-]+)(.*)$/", $this->_baseUrl, $result)) {
             if(count($result) < 5) {
                 throw new \Exception("BaseLink::_parseBaseUrl bad regular expression or base url");
             }
@@ -53,6 +53,7 @@ class BaseLink implements IBaseLink {
             $this->_proto = $result[1];
             $this->_host = $result[3];
             $this->_link = $result[4];
+            return;
         }
 
         throw new \Exception("BaseLink::_parseBaseUrl bad regular expression or base url");

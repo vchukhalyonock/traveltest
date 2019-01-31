@@ -9,10 +9,11 @@ class LinkStorage implements ILinkStorage {
     private $_links = [];
     private $_currentIndex = 0;
 
-    public function addLink(string $link): void {
+    public function addLink(string $link) {
         if(!in_array($link, $this->_links)) {
             $this->_links[] = $link;
         }
+        return;
     }
 
     public function current() {

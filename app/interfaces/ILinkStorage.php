@@ -12,5 +12,5 @@ interface ILinkStorage extends \Iterator {
     /**
      * @param string $link
      */
-    public function addLink(string $link): void;
+    public function addLink(string $link);
 }

@@ -19,10 +19,11 @@ class Request implements IRequest {
      * Request constructor.
      * @param mixed $curlResult
      */
-    public function __construct(mixed $curlResult) {
+    public function __construct($curlResult) {
         $this->_curlResult = $curlResult;
         $this->_extractBody();
         $this->_extractCode();
+        $this->_extractTotalTime();
     }
 
     /**
@@ -41,9 +42,9 @@ class Request implements IRequest {
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getLoadTime(): int {
+    public function getLoadTime(): float {
         return $this->_totalTime;
     }
 
@@ -52,18 +53,18 @@ class Request implements IRequest {
      *
      */
     private function _extractBody() {
-        $this->_body = $this->_curlResult[1];
+        $this->_body = $this->_curlResult[0];
     }
 
     /**
      *
      */
     private function _extractCode() {
-        $this->_code = $this->_curlResult[0]['http_code'];
+        $this->_code = $this->_curlResult[1]['http_code'];
     }
 
 
     private function _extractTotalTime() {
-        $this->_code = $this->_curlResult[0]['total_time'];
+        $this->_totalTime = $this->_curlResult[1]['total_time'];
     }
 }
