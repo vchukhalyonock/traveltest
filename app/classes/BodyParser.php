@@ -32,7 +32,7 @@ class BodyParser implements IBodyParser {
         $matches = $this->_findByRegExp('/(<a[^>]*)href=(\"?)([^\s\">]+?)(\"?)([^>]*>)/ismU');
 
         foreach ($matches[3] as $match)
-            $result[] = $match;
+            $result[] = str_replace(['"', "'"], "", $match);
 
         return $result;
     }

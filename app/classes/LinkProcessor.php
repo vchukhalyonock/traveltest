@@ -23,8 +23,7 @@ class LinkProcessor implements ILinkProcessor {
      * @return bool
      */
     public function isRelative(string $link): bool {
-        $proto = $this->_baseLink->getProto();
-        return stripos($link, "{$proto}://") !== 0;
+        return !(stripos($link, "://") > 0);
     }
 
 
