@@ -4,7 +4,7 @@ namespace App\Classes;
 
 use App\Interfaces\IGrabber;
 use App\Interfaces\IResultStorage;
-use App\Interfaces\ResultStorage;
+
 
 /**
  * Class Grabber
