@@ -3,18 +3,16 @@
 namespace App;
 
 
+use App\Classes\BaseLink;
 use App\Classes\Grabber;
+use App\Classes\Report;
 
 class App {
 
-    private $resultStorage;
-
-    public function __construct(string $baseUrl) {
-        $this->resultStorage = Grabber::run($baseUrl);
-        $this->resultStorage->sortByImageTags();
-        foreach ($this->resultStorage as $result) {
-            var_dump($result);
-        }
+    public function __construct(string $baseUrl, string $resultFolder) {
+        $resultStorage = Grabber::run($baseUrl);
+        $resultStorage->sortByImageTags();
+        Report::generate(new BaseLink($baseUrl), $resultStorage, $resultFolder);
     }
 
 }

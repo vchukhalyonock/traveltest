@@ -2,4 +2,4 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-$app = new \App\App('http://robotstxt.org.ru/');
+$app = new \App\App('http://robotstxt.org.ru/', __DIR__);
