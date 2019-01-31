@@ -3,14 +3,14 @@
 namespace App\Classes;
 
 use App\Interfaces\IBaseLink;
-use App\Interfaces\ILink;
+use App\Interfaces\ILinkProcessor;
 
-class Link implements ILink {
+class LinkProcessor implements ILinkProcessor {
 
     private $_baseLink;
 
     /**
-     * Link constructor.
+     * LinkProcessor constructor.
      * @param IBaseLink $baseLink
      */
     public function __construct(IBaseLink $baseLink) {
@@ -53,6 +53,6 @@ class Link implements ILink {
         if(preg_match("/(.*)(#?)(.*)$/", $link, $result) !== false)
             return $result[1];
 
-        throw new \Exception("Link::removeAnchor bad regular expression or base url");
+        throw new \Exception("LinkProcessor::removeAnchor bad regular expression or base url");
     }
 }

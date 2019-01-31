@@ -5,7 +5,7 @@ namespace App;
 use App\Classes\BaseLink;
 use App\Classes\BodyParser;
 use App\Classes\Curl;
-use App\Classes\Link;
+use App\Classes\LinkProcessor;
 use App\Classes\LinkStorage;
 use App\Classes\LinkValidator;
 
@@ -43,8 +43,8 @@ class App {
             ];
 
             foreach ($foundLinks as $foundLink) {
-                $linkObject = new Link($this->_baseLink);
-                $fullLink = $linkObject->makeFullLink($foundLink);
+                $linkProcessor = new LinkProcessor($this->_baseLink);
+                $fullLink = $linkProcessor->makeFullLink($foundLink);
                 if($this->_linkValidator->check($fullLink)) {
                     $this->_linkStorage->addLink($fullLink);
                 }

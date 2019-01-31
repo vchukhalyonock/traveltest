@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface ILink {
+interface ILinkProcessor {
 
     public function __construct(IBaseLink $baseLink);
     public function isRelative(string $link): bool;
