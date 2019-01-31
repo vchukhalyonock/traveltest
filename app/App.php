@@ -30,15 +30,16 @@ class App {
     private function _init() {
         $curl = new Curl();
         foreach ($this->_linkStorage as $link) {
-            echo "Processing link $link\n";
-            $request = $curl->request($link);
+            echo "Processing link {$link->getLink()}\n";
+            $currentDepth = $link->getDepth();
+            $request = $curl->request($link->getLink());
             $bodyParser = new BodyParser($request->getBody());
             $foundLinks = $bodyParser->getLinks();
             $numberOfImages = count($bodyParser->getImages());
             $this->_result[] = [
-                'link' => $link,
+                'link' => $link->getLink(),
                 'imgTags' => $numberOfImages,
-                'depth' => 0,
+                'depth' => $currentDepth,
                 'loadTime' => $request->getLoadTime()
             ];
 
@@ -46,7 +47,7 @@ class App {
                 $linkProcessor = new LinkProcessor($this->_baseLink);
                 $fullLink = $linkProcessor->makeFullLink($foundLink);
                 if($this->_linkValidator->check($fullLink)) {
-                    $this->_linkStorage->addLink($fullLink);
+                    $this->_linkStorage->addLink($fullLink, $currentDepth + 1);
                 }
             }
             unset($bodyParser);

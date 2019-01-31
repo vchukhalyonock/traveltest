@@ -11,6 +11,8 @@ interface ILinkStorage extends \Iterator {
 
     /**
      * @param string $link
+     * @param int $depth
+     * @return mixed
      */
-    public function addLink(string $link);
+    public function addLink(string $link, int $depth = 0);
 }
