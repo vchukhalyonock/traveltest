@@ -23,6 +23,7 @@ class App {
         $this->_linkValidator = new LinkValidator($this->_baseLink);
 
         $this->_init();
+        $this->_sortByImageNumbers();
         var_dump($this->_result);
     }
 
@@ -52,5 +53,14 @@ class App {
             }
             unset($bodyParser);
         }
+    }
+
+
+    private function _sortByImageNumbers() {
+        usort($this->_result, function ($a, $b){
+            if($a['imgTags'] == $b['imgTags'])
+                return 0;
+            return ($a['imgTags'] > $b['imgTags']) ? -1 : 1;
+        });
     }
 }
