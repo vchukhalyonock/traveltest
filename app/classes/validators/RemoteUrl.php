@@ -8,11 +8,19 @@ use App\Classes\URLParser;
 
 /**
  * Class RemoteUrl
+ *
+ * Validation if link is a remote URL (not from grabbed site)
+ *
+ * @see IValidator
  * @package App\Classes\Validators
  */
 class RemoteUrl implements IValidator {
 
     /**
+     * Method check
+     *
+     * @see IValidator::check()
+     * @see IBaseLink
      * @param IBaseLink $baseLink
      * @param string $url
      * @return bool

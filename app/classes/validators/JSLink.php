@@ -7,11 +7,19 @@ use App\Interfaces\IValidator;
 
 /**
  * Class JSLink
+ *
+ * Validation if link is a javascript method run
+ *
+ * @see IValidator
  * @package App\Classes\Validators
  */
 class JSLink implements IValidator {
 
     /**
+     * Method check
+     *
+     * @see IValidator::check()
+     * @see IBaseLink
      * @param IBaseLink $baseLink
      * @param string $url
      * @return bool

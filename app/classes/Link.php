@@ -6,16 +6,24 @@ use App\Interfaces\ILink;
 
 /**
  * Class Link
+ *
+ * One Link of the site
+ *
+ * @see ILink
  * @package App\Classes
  */
 class Link implements ILink {
 
     /**
+     * Link
+     *
      * @var string
      */
     protected $_link;
 
     /**
+     * Link depth in the sitemap structure
+     *
      * @var int
      */
     protected $_depth;
@@ -31,6 +39,9 @@ class Link implements ILink {
     }
 
     /**
+     * Method getLink
+     *
+     * @see ILink::getLink()
      * @return string
      */
     public function getLink(): string {
@@ -39,6 +50,9 @@ class Link implements ILink {
 
 
     /**
+     * Method getDepth
+     *
+     * @see ILink::getDepth()
      * @return int
      */
     public function getDepth(): int {

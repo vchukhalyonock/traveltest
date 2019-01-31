@@ -8,11 +8,19 @@ use App\Interfaces\ResultStorage;
 
 /**
  * Class Grabber
+ *
+ * Extracting useful info from site
+ *
+ * @see IGrabber
  * @package App\Classes
  */
 class Grabber implements IGrabber {
 
     /**
+     * Method run
+     *
+     * @see IGrabber::run()
+     * @see IResultStorage
      * @param string $baseUrl
      * @return IResultStorage
      */

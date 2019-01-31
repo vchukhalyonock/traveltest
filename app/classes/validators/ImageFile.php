@@ -7,11 +7,19 @@ use App\Interfaces\IValidator;
 
 /**
  * Class ImageFile
+ *
+ * Validation if link is a image file
+ *
+ * @see IValidator
  * @package App\Classes\Validators
  */
 class ImageFile implements IValidator {
 
     /**
+     * Method check
+     *
+     * @see IValidator::check()
+     * @see IBaseLink
      * @param IBaseLink $baseLink
      * @param string $url
      * @return bool

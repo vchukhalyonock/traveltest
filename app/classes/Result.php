@@ -7,21 +7,33 @@ use App\Interfaces\IResult;
 
 /**
  * Class Result
+ *
+ * One result of the investigating
+ *
+ * @see IResult
+ * @see ILink
+ * @see Link
  * @package App\Classes
  */
 class Result implements IResult {
 
     /**
+     * Link of the page
+     *
      * @var ILink
      */
     protected $_link;
 
     /**
+     * Number of Img tags
+     *
      * @var int
      */
     protected $_imgTags;
 
     /**
+     * Page load time
+     *
      * @var float
      */
     protected $_loadTime;
@@ -39,6 +51,9 @@ class Result implements IResult {
     }
 
     /**
+     * Method getLink
+     *
+     * @see IResult::getLink()
      * @return ILink
      */
     public function getLink(): ILink {
@@ -47,6 +62,9 @@ class Result implements IResult {
 
 
     /**
+     * Method getImgTags
+     *
+     * @see IResult::getImgTags()
      * @return int
      */
     public function getImgTags(): int {
@@ -54,6 +72,9 @@ class Result implements IResult {
     }
 
     /**
+     * Method getLoadTime
+     *
+     * @see IResult::getLoadTime()
      * @return float
      */
     public function getLoadTime(): float {

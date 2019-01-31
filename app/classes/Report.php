@@ -8,11 +8,24 @@ use App\Interfaces\IResultStorage;
 
 /**
  * Class Report
+ *
+ * Class for report generation
+ *
+ * @see IReport
+ * @see IBaseLink
+ * @see IResultStorage
  * @package App\Classes
  */
 class Report implements IReport {
 
     /**
+     * Method generate
+     *
+     * Extract data from ResultStorage and write it to file
+     *
+     * @see IReport::generate()
+     * @see IBaseLink
+     * @see IResultStorage
      * @param IBaseLink $baseLink
      * @param IResultStorage $resultStorage
      * @param string $folder

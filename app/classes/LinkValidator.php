@@ -4,19 +4,34 @@ namespace App\Classes;
 
 use App\Interfaces\IBaseLink;
 use App\Interfaces\ILinkValidator;
+use App\Interfaces\IValidator;
 
 /**
  * Class LinkValidator
+ *
+ * Global class for validation links before send it to storage.
+ * Uses IValidators classes for chain validation
+ *
+ * @see ILinkValidator
+ * @see IValidator
  * @package App\Classes
  */
 class LinkValidator implements ILinkValidator {
 
     /**
+     * Base Link
+     *
+     * @see IBaseLink
+     * @see BaseLink
      * @var IBaseLink
      */
     private $_baseLink;
 
     /**
+     * List of the validator.
+     * You can add any validator implements IValidator interface in validator class
+     *
+     * @see IValidator
      * @var array
      */
     private $_validators = [
@@ -27,6 +42,8 @@ class LinkValidator implements ILinkValidator {
     ];
 
     /**
+     * Namespace for validator class
+     *
      * @var string
      */
     private $_validatorsNamespase = "App\\Classes\\Validators\\";
@@ -41,6 +58,9 @@ class LinkValidator implements ILinkValidator {
 
 
     /**
+     * Method check
+     *
+     * @see ILinkValidator::check()
      * @param string $link
      * @return bool
      */

@@ -6,6 +6,10 @@ use App\Interfaces\IBodyParser;
 
 /**
  * Class BodyParser
+ *
+ * Parsing page source and extract useful information
+ *
+ * @see IBodyParser
  * @package App\Classes
  */
 class BodyParser implements IBodyParser {
@@ -21,6 +25,9 @@ class BodyParser implements IBodyParser {
     }
 
     /**
+     * Method getImages
+     *
+     * @see IBodyParser::getImages()
      * @return array
      */
     public function getImages(): array {
@@ -29,6 +36,9 @@ class BodyParser implements IBodyParser {
 
 
     /**
+     * Method getLinks
+     *
+     * @see IBodyParser::getLinks()
      * @return array
      */
     public function getLinks(): array {
@@ -43,6 +53,10 @@ class BodyParser implements IBodyParser {
 
 
     /**
+     * Method _findByRegExp
+     *
+     * Method for extracting info using regular expressions
+     *
      * @param string $regExp
      * @return array
      */

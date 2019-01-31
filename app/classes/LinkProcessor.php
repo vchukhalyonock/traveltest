@@ -3,18 +3,32 @@
 namespace App\Classes;
 
 use App\Interfaces\IBaseLink;
+use App\Interfaces\IBodyParser;
 use App\Interfaces\ILinkProcessor;
 
 /**
  * Class LinkProcessor
+ *
+ * Found link processing according base URL of the site
+ *
+ * @see ILinkProcessor
  * @package App\Classes
  */
 class LinkProcessor implements ILinkProcessor {
 
+    /**
+     * Base Link object
+     *
+     * @see IBaseLink
+     * @var IBaseLink
+     */
     private $_baseLink;
 
     /**
      * LinkProcessor constructor.
+     *
+     * @see IBaseLink
+     * @see BaseLink
      * @param IBaseLink $baseLink
      */
     public function __construct(IBaseLink $baseLink) {
@@ -23,6 +37,9 @@ class LinkProcessor implements ILinkProcessor {
 
 
     /**
+     * Method isRelative
+     *
+     * @see ILinkProcessor::isRelative()
      * @param string $link
      * @return bool
      */
@@ -32,6 +49,9 @@ class LinkProcessor implements ILinkProcessor {
 
 
     /**
+     * Method makeFullLink
+     *
+     * @see ILinkProcessor::makeFullLink()
      * @param string $link
      * @return string
      */
@@ -47,6 +67,10 @@ class LinkProcessor implements ILinkProcessor {
 
 
     /**
+     * Method removeAnchor
+     *
+     *
+     * @see ILinkProcessor::removeAnchor()
      * @param string $link
      * @return string
      * @throws \Exception

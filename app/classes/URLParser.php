@@ -7,11 +7,19 @@ use App\Interfaces\IURLParser;
 
 /**
  * Class URLParser
+ *
+ * Class for parsing URL
+ *
+ * @see IURLParser
+ * @see IParsedUrl
  * @package App\Classes
  */
 class URLParser implements IURLParser {
 
     /**
+     * Method parse
+     *
+     * @see IURLParser::parse()
      * @param string $url
      * @return IParsedUrl
      * @throws \Exception

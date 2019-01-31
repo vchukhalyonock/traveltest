@@ -9,6 +9,9 @@ use App\Classes\Report;
 
 /**
  * Class App
+ *
+ * Main application class
+ *
  * @package App
  */
 class App {

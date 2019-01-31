@@ -7,11 +7,19 @@ use App\Interfaces\IValidator;
 
 /**
  * Class MailTo
+ *
+ * Validation if link is a 'mailto:'
+ *
+ * @see IValidator
  * @package App\Classes\Validators
  */
 class MailTo implements IValidator {
 
     /**
+     * Method check
+     *
+     * @see IValidator::check()
+     * @see IBaseLink
      * @param IBaseLink $baseLink
      * @param string $url
      * @return bool

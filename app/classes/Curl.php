@@ -7,11 +7,18 @@ use App\Interfaces\IRequest;
 
 /**
  * Class Curl
+ *
+ * Facade for using CURL
+ *
+ * @see ICurl
  * @package App\Classes
  */
 class Curl implements ICurl {
 
     /**
+     * Method request
+     *
+     * @see ICurl::request()
      * @param string $url
      * @return IRequest
      */
