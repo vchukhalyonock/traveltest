@@ -7,8 +7,17 @@ use App\Classes\BaseLink;
 use App\Classes\Grabber;
 use App\Classes\Report;
 
+/**
+ * Class App
+ * @package App
+ */
 class App {
 
+    /**
+     * App constructor.
+     * @param string $baseUrl
+     * @param string $resultFolder
+     */
     public function __construct(string $baseUrl, string $resultFolder) {
         $resultStorage = Grabber::run($baseUrl);
         $resultStorage->sortByImageTags();
