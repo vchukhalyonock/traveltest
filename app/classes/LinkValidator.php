@@ -8,29 +8,16 @@ use App\Interfaces\ILinkValidator;
 class LinkValidator implements ILinkValidator {
 
     private $_baseLink;
+    private $_validators = [
+      'JSLink',
+      'MailTo',
+      'RemoteUrl',
+        'ImageFile'
+    ];
+    private $_validatorsNamespase = "App\\Classes\\Validators\\";
 
     public function __construct(IBaseLink $baseLink) {
         $this->_baseLink = $baseLink;
-    }
-
-    /**
-     * @param string $link
-     * @return bool
-     */
-    private function _isRemoteUrl(string $link): bool {
-        $testLinkParsed = URLParser::parse($link);
-        return $testLinkParsed->getHost() !== $this->_baseLink->getHost();
-        //return stripos($link, $this->_baseLink->getProto() . '://' . $this->_baseLink->getHost()) !== 0;
-    }
-
-
-    private function _isJSLink(string $link): bool {
-        return stristr($link, "javascript:void(0)") !== false;
-    }
-
-
-    private function _isMailTo(string  $link): bool {
-        return stristr($link, "mailto:") !== false;
     }
 
 
@@ -39,6 +26,12 @@ class LinkValidator implements ILinkValidator {
      * @return bool
      */
     public function check(string $link): bool {
-        return !$this->_isRemoteUrl($link) && !$this->_isJSLink($link) && !$this->_isMailTo($link);
+        foreach ($this->_validators as $validator) {
+            $validator = $this->_validatorsNamespase . $validator;
+            if($validator::check($this->_baseLink, $link))
+                return false;
+        }
+
+        return true;
     }
 }
